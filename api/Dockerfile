@@ -11,6 +11,6 @@ RUN yarn
 # Copy app files
 COPY . .
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD [ "yarn", "start" ]

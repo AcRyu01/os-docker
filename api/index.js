@@ -12,13 +12,15 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:80",
   "http://localhost:443",
+  "http://178.128.125.38:81",
+  "http://178.128.125.38:80",
 ];
 const options = {
   origin: allowedOrigins,
 };
 app.use(cors(options));
 
-app.get("/api/weather", async (req, res) => {
+app.get("/Weather", async (req, res) => {
   const city = req.query.city || "Bangkok";
   const weatherApi =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -40,7 +42,7 @@ app.get("/api/weather", async (req, res) => {
   }
 });
 
-app.get("/api/THprovince", (req, res) => {
+app.get("/THprovince", (req, res) => {
   return res.status(200).json(thai_provinces);
 });
 

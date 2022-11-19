@@ -4,7 +4,7 @@ import axios from "axios";
 import "./App.css";
 
 const App = () => {
-  const THprovinceURL = "http://localhost:8080/api/THprovince";
+  const THprovinceURL = "http://178.128.125.38/apiTHprovince";
 
   const [THprovince, setTHprovince] = useState();
   const [city, setcity] = useState();
@@ -21,7 +21,7 @@ const App = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios(`http://localhost:8080/api/weather?city=${city}`);
+      const res = await axios(`http://178.128.125.38/apiWeather?city=${city}`);
       if (res.status === 200) {
         setData(res.data);
       }
@@ -85,16 +85,19 @@ const App = () => {
 
         <div className="temperature">
           <div id="temp">
+            temp:
             {data ? (data.main.temp - 273).toFixed(2) + "°C" : ""}
           </div>
         </div>
 
         <div className="humidity">
+          humidity:
           <div id="humidity-div">{data ? data.main.humidity + "%" : ""}</div>
         </div>
 
         <div className="visibility">
           <div id="visibility-div">
+            visibility:
             {data
               ? "visibility " + parseInt(data.visibility / 1000) + " KM"
               : ""}
