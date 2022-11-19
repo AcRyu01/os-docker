@@ -1,7 +1,7 @@
 FROM node:16-alpine 
 
 # Add a work directory
-WORKDIR /usr/src/os-api-gateway
+WORKDIR /usr/src/os-docker/api
 
 # Cache and Install dependencies
 COPY ./package.json ./
