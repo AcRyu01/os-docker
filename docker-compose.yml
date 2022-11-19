@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  frontend:
+    build: ./frontend
+    image: frontend
+    networks:
+      - sub-etha
+  backend:
+    build: ./api
+    image: api
+    networks:
+      - sub-etha
+  revproxy:
+    build: ./reverseProxy
+    image: reverseProxy
+    networks:
+      - sub-etha
+    ports:
+      - "80:80"
+networks:
+  sub-etha:
