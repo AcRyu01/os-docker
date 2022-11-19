@@ -11,8 +11,8 @@ services:
     networks:
       - sub-etha
   revproxy:
-    build: ./reverseProxy
-    image: reverseProxy
+    build: ./reverseproxy
+    image: reverseproxy
     networks:
       - sub-etha
     ports:
