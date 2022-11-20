@@ -3,16 +3,19 @@ services:
   frontend:
     build: ./frontend
     image: frontend
+    restart: always
     networks:
       - sub-etha
   backend:
     build: ./api
     image: api
+    restart: always
     networks:
       - sub-etha
   revproxy:
     build: ./reverseproxy
     image: reverseproxy
+    restart: always
     networks:
       - sub-etha
     ports:
