@@ -5,7 +5,7 @@ import axios from "axios";
 import thai_provinces from "./thai_provinces.json" assert { type: "json" };
 
 const app = express();
-const port = 8080;
+const port = 80;
 const appKey = "";
 
 const allowedOrigins = [
