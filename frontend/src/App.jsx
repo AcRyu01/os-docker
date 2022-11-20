@@ -4,7 +4,8 @@ import axios from "axios";
 import "./App.css";
 
 const App = () => {
-  const THprovinceURL = "http://178.128.125.38/apiTHprovince";
+  const THprovinceApi = "http://178.128.125.38/apiTHprovince";
+  const weatherApi = "http://178.128.125.38/apiWeather?city=";
 
   const [THprovince, setTHprovince] = useState();
   const [city, setcity] = useState();
@@ -12,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchTHprovince = async () => {
-      const res = await axios(THprovinceURL);
+      const res = await axios(THprovinceApi);
       setTHprovince(res.data.RECORDS);
     };
     fetchTHprovince();
@@ -21,7 +22,7 @@ const App = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios(`http://178.128.125.38/apiWeather?city=${city}`);
+      const res = await axios(weatherApi + city);
       if (res.status === 200) {
         setData(res.data);
       }
